@@ -18,7 +18,9 @@
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
-        <td><%= picture.source %></td>
+        <td>
+          <img src="<%= picture.source %>" width="60">
+        </td>
         <td><%= picture.caption %></td>
         <td>
           <a href="/pictures/<%= picture.id %>" class="btn btn-primary">
