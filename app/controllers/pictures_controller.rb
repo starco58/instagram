@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   def index
-    @pictures = Picture.all
+    @pictures = current_user.pictures
   end
 
   def show
@@ -15,6 +15,7 @@ class PicturesController < ApplicationController
     @picture = Picture.new
     @picture.source = params[:source]
     @picture.caption = params[:caption]
+    @picture.user_id = current_user.id
 
     if @picture.save
       redirect_to "/pictures", :notice => "Picture created successfully."
